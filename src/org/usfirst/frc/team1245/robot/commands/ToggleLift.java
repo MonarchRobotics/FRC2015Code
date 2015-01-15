@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ToggleLifter extends Command {
+public class ToggleLift extends Command {
 
-    public ToggleLifter() {
+    public ToggleLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

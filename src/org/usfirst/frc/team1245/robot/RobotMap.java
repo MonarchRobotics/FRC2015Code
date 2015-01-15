@@ -22,4 +22,7 @@ public class RobotMap {
 	
 	public static final int forwardChannel = 0;
 	public static final int reverseChannel = 1;
+	
+	public static final int buttonToggleGrip = 1;
+	public static final int buttonToggleLift = 2;
 }
