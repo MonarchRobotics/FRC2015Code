@@ -1,7 +1,11 @@
 package org.usfirst.frc.team1245.robot;
 
+import org.usfirst.frc.team1245.robot.commands.ToggleGrip;
+import org.usfirst.frc.team1245.robot.commands.ToggleLift;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,9 +41,18 @@ public class OI {
 	Joystick driverJoystick;
 	Joystick secondaryJoystick;
 	
+	Button toggleGripButton;
+	Button toggleLiftButton;
+	
 	public OI() {
 		driverJoystick = new Joystick(1);
 		secondaryJoystick = new Joystick(2);
+		
+		toggleGripButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleGrip);
+		toggleGripButton.whenReleased(new ToggleGrip());
+		
+		toggleLiftButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleLift);
+		toggleLiftButton.whenReleased(new ToggleLift());
 	}
 }
 
