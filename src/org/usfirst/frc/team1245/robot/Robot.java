@@ -2,11 +2,11 @@
 package org.usfirst.frc.team1245.robot;
 
 import org.usfirst.frc.team1245.robot.subsystems.Gripper;
+import org.usfirst.frc.team1245.robot.subsystems.Lifter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -20,8 +20,9 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	
-	public static final Gripper gripper = new Gripper(RobotMap.forwardChannel, RobotMap.reverseChannel); 
-
+	public static final Gripper gripper = new Gripper(RobotMap.forwardGripperChannel, RobotMap.reverseGripperChannel); 
+	public static final Lifter lifter = new Lifter(RobotMap.forwardLifterChannel, RobotMap.reverseLifterChannel);
+	
     Command autonomousCommand;
 
     /**

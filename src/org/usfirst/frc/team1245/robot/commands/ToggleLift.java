@@ -1,5 +1,9 @@
 package org.usfirst.frc.team1245.robot.commands;
 
+
+import org.usfirst.frc.team1245.robot.Robot;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -10,6 +14,7 @@ public class ToggleLift extends Command {
     public ToggleLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.lifter);
     }
 
     // Called just before this Command runs the first time
@@ -18,6 +23,11 @@ public class ToggleLift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(Robot.lifter.getState() == DoubleSolenoid.Value.kForward){
+    		Robot.lifter.setReverse();
+    	} else{
+    		Robot.lifter.setForward();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

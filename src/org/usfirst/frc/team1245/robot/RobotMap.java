@@ -20,8 +20,11 @@ public class RobotMap {
 	public static final int frontRight = 2;
 	public static final int rearRight = 3;
 	
-	public static final int forwardChannel = 0;
-	public static final int reverseChannel = 1;
+	public static final int forwardGripperChannel = 0;
+	public static final int reverseGripperChannel = 1;
+	
+	public static final int forwardLifterChannel = 2;
+	public static final int reverseLifterChannel = 3;
 	
 	public static final int buttonToggleGrip = 1;
 	public static final int buttonToggleLift = 2;

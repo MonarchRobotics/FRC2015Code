@@ -14,6 +14,7 @@ public class Drivetrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
+	@SuppressWarnings("unused")
 	private RobotDrive robotDrivetrain;
 
     public void initDefaultCommand() {

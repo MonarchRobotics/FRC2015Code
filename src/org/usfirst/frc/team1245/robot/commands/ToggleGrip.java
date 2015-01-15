@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1245.robot.commands;
 
 import org.usfirst.frc.team1245.robot.Robot;
-import org.usfirst.frc.team1245.robot.subsystems.Gripper;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
