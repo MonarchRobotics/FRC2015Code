@@ -38,11 +38,22 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-	Joystick driverJoystick;
-	Joystick secondaryJoystick;
+	public static Joystick driverJoystick;
+	public static Joystick secondaryJoystick;
 	
 	Button toggleGripButton;
 	Button toggleLiftButton;
+	
+	public static double deadZone(double val, double deadZone) {
+		if(Math.abs(val) > deadZone) {
+			if(val > 0) {
+				return (val - deadZone) / (1 - deadZone);
+			} else {
+				return -(-val - deadZone) / (1 - deadZone);
+			}
+		}
+		return 0;
+	}
 	
 	public OI() {
 		driverJoystick = new Joystick(1);

@@ -14,8 +14,7 @@ public class Drivetrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	@SuppressWarnings("unused")
-	private RobotDrive robotDrivetrain;
+	private RobotDrive regularDrivetrain;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -23,13 +22,19 @@ public class Drivetrain extends Subsystem {
     	setDefaultCommand(new MecanumDrive());
     }
     
+    // Return the RobotDrive object
+    public RobotDrive getDrivetrain() {
+    	return regularDrivetrain;
+    }
+    
+    // Initialize the RobotDrive object with Talon motor controllers
     public Drivetrain(int frontLeft, int rearLeft, int frontRight, int rearRight) {
     	Talon tFrontLeft = new Talon(frontLeft);
     	Talon tRearLeft = new Talon(rearLeft);
     	Talon tFrontRight = new Talon(frontRight);
     	Talon tRearRight = new Talon(rearRight);
     	
-    	robotDrivetrain = new RobotDrive(tFrontLeft, tRearLeft, tFrontRight, tRearRight);
+    	regularDrivetrain = new RobotDrive(tFrontLeft, tRearLeft, tFrontRight, tRearRight);
     }
 }
 
