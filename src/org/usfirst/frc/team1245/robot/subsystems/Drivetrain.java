@@ -35,6 +35,8 @@ public class Drivetrain extends Subsystem {
     	Talon tRearRight = new Talon(rearRight);
     	
     	regularDrivetrain = new RobotDrive(tFrontLeft, tRearLeft, tFrontRight, tRearRight);
+    	regularDrivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+    	regularDrivetrain.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     }
 }
 
