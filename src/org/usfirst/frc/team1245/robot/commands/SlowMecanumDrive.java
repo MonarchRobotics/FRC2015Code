@@ -4,15 +4,14 @@ import org.usfirst.frc.team1245.robot.OI;
 import org.usfirst.frc.team1245.robot.Robot;
 import org.usfirst.frc.team1245.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class MecanumDrive extends Command {
+public class SlowMecanumDrive extends Command {
 
-    public MecanumDrive() {
+    public SlowMecanumDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
@@ -24,9 +23,9 @@ public class MecanumDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double x = OI.deadZone(OI.driverJoystick.getX(), RobotMap.translationalDeadZone);
-    	double y = OI.deadZone(OI.driverJoystick.getY(), RobotMap.rotationalDeadZone);
-    	double twist = OI.deadZone(OI.driverJoystick.getTwist(), RobotMap.rotationalDeadZone);
+    	double x = OI.deadZone(OI.driverJoystick.getX()/2, RobotMap.translationalDeadZone/2);
+    	double y = OI.deadZone(OI.driverJoystick.getY()/2, RobotMap.rotationalDeadZone/2);
+    	double twist = OI.deadZone(OI.driverJoystick.getTwist()/2, RobotMap.rotationalDeadZone/2);
     	
     	Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(x, y, twist, 0);
     }
@@ -43,6 +42,5 @@ public class MecanumDrive extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	cancel();
     }
 }

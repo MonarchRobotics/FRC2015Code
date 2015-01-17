@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1245.robot;
 
+import org.usfirst.frc.team1245.robot.commands.SlowMecanumDrive;
 import org.usfirst.frc.team1245.robot.commands.ToggleGrip;
 import org.usfirst.frc.team1245.robot.commands.ToggleLift;
 
@@ -41,6 +42,7 @@ public class OI {
 	public static Joystick driverJoystick;
 	public static Joystick secondaryJoystick;
 	
+	Button slowInput;
 	Button toggleGripButton;
 	Button toggleLiftButton;
 	
@@ -58,6 +60,9 @@ public class OI {
 	public OI() {
 		driverJoystick = new Joystick(0);
 		secondaryJoystick = new Joystick(1);
+		
+		slowInput = new JoystickButton(driverJoystick, RobotMap.buttonSlowInputs);
+		slowInput.whileHeld(new SlowMecanumDrive());
 		
 		toggleGripButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleGrip);
 		toggleGripButton.whenReleased(new ToggleGrip());
