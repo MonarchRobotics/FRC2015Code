@@ -56,8 +56,8 @@ public class OI {
 	}
 	
 	public OI() {
-		driverJoystick = new Joystick(1);
-		secondaryJoystick = new Joystick(2);
+		driverJoystick = new Joystick(0);
+		secondaryJoystick = new Joystick(1);
 		
 		toggleGripButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleGrip);
 		toggleGripButton.whenReleased(new ToggleGrip());

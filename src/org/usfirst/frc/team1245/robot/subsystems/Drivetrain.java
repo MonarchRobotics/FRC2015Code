@@ -56,6 +56,8 @@ public class Drivetrain extends Subsystem {
     	tRearRight = new CANTalon(rearRight);
     	
     	regularDrivetrain = new RobotDrive(tFrontLeft, tRearLeft, tFrontRight, tRearRight);
+    	regularDrivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+    	regularDrivetrain.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     }
 }
 
