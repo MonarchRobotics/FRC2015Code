@@ -24,6 +24,7 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain(RobotMap.frontLeft, RobotMap.rearLeft, RobotMap.frontRight, RobotMap.rearRight);
 	public static final Gripper gripper = new Gripper(RobotMap.forwardGripperChannel, RobotMap.reverseGripperChannel); 
 	public static final Lifter lifter = new Lifter(RobotMap.forwardLifterChannel, RobotMap.reverseLifterChannel);
+	public static final CompressorSubsystem compressorSubsystem = new CompressorSubsystem();
 	
     Command autonomousCommand;
 
