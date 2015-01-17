@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team1245.robot;
 
+import org.usfirst.frc.team1245.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team1245.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1245.robot.subsystems.Gripper;
 import org.usfirst.frc.team1245.robot.subsystems.Lifter;
