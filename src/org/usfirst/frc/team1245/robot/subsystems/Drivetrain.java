@@ -2,7 +2,7 @@ package org.usfirst.frc.team1245.robot.subsystems;
 
 import org.usfirst.frc.team1245.robot.commands.MecanumDrive;
 
-import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -16,10 +16,10 @@ public class Drivetrain extends Subsystem {
 	
 	private RobotDrive regularDrivetrain;
 	
-	private CANTalon tFrontLeft;
-	private CANTalon tRearLeft;
-	private CANTalon tFrontRight;
-	private CANTalon tRearRight;
+	private Talon tFrontLeft;
+	private Talon tRearLeft;
+	private Talon tFrontRight;
+	private Talon tRearRight;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -32,28 +32,28 @@ public class Drivetrain extends Subsystem {
     	return regularDrivetrain;
     }
     
-    public CANTalon getFrontLeft() {
+    public Talon getFrontLeft() {
     	return tFrontLeft;
     }
     
-    public CANTalon getRearLeft() {
+    public Talon getRearLeft() {
     	return tRearLeft;
     }
     
-    public CANTalon getFrontRight() {
+    public Talon getFrontRight() {
     	return tFrontRight;
     }
     
-    public CANTalon getRearRight() {
+    public Talon getRearRight() {
     	return tRearRight;
     }
     
     // Initialize the RobotDrive object with Talon SRX motor controllers
     public Drivetrain(int frontLeft, int rearLeft, int frontRight, int rearRight) {
-    	tFrontLeft = new CANTalon(frontLeft);
-    	tRearLeft = new CANTalon(rearLeft);
-    	tFrontRight = new CANTalon(frontRight);
-    	tRearRight = new CANTalon(rearRight);
+    	tFrontLeft = new Talon(frontLeft);
+    	tRearLeft = new Talon(rearLeft);
+    	tFrontRight = new Talon(frontRight);
+    	tRearRight = new Talon(rearRight);
     	
     	regularDrivetrain = new RobotDrive(tFrontLeft, tRearLeft, tFrontRight, tRearRight);
     	regularDrivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
