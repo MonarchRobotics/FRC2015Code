@@ -9,26 +9,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Drivetrain extends Subsystem {
+public abstract class Drivetrain extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	protected RobotDrive regularDrivetrain;
+	protected RobotDrive robotDrive;
 	
 	protected SpeedController tFrontLeft;
 	protected SpeedController tRearLeft;
 	protected SpeedController tFrontRight;
 	protected SpeedController tRearRight;
 
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
+    public abstract void initDefaultCommand();
     
     // Return the RobotDrive object
     public RobotDrive getDrivetrain() {
-    	return regularDrivetrain;
+    	return robotDrive;
     }
     
     public SpeedController getFrontLeft() {
