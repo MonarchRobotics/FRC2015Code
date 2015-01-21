@@ -23,7 +23,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	
-	public static final Drivetrain drivetrain = new RegularDrivetrain(RobotMap.frontLeft, RobotMap.rearLeft, RobotMap.frontRight, RobotMap.rearRight);
+	public static final Drivetrain drivetrain = new SRXDrivetrain(RobotMap.frontLeft, RobotMap.rearLeft, RobotMap.frontRight, RobotMap.rearRight);
 	public static final Gripper gripper = new Gripper(RobotMap.forwardGripperChannel, RobotMap.reverseGripperChannel); 
 	public static final Lifter lifter = new Lifter(RobotMap.forwardLifterChannel, RobotMap.reverseLifterChannel);
 	public static final CompressorSubsystem compressorSubsystem = new CompressorSubsystem();

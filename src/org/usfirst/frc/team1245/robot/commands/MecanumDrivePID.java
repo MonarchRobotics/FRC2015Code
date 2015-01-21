@@ -19,22 +19,22 @@ public class MecanumDrivePID extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	// Have the PID check for the speed of the wheel
-    	Robot.drivetrain.getFrontLeft().changeControlMode(CANTalon.ControlMode.Speed);
-    	Robot.drivetrain.getRearLeft().changeControlMode(CANTalon.ControlMode.Speed);
-    	Robot.drivetrain.getFrontRight().changeControlMode(CANTalon.ControlMode.Speed);
-    	Robot.drivetrain.getRearRight().changeControlMode(CANTalon.ControlMode.Speed);
+    	((CANTalon)Robot.drivetrain.getFrontLeft()).changeControlMode(CANTalon.ControlMode.Speed);
+    	((CANTalon)Robot.drivetrain.getRearLeft()).changeControlMode(CANTalon.ControlMode.Speed);
+    	((CANTalon)Robot.drivetrain.getFrontRight()).changeControlMode(CANTalon.ControlMode.Speed);
+    	((CANTalon)Robot.drivetrain.getRearRight()).changeControlMode(CANTalon.ControlMode.Speed);
     	
     	// Have the PID read the output from the Quadrature Encoders
-    	Robot.drivetrain.getFrontLeft().setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	Robot.drivetrain.getRearLeft().setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	Robot.drivetrain.getFrontRight().setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-    	Robot.drivetrain.getRearRight().setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+    	((CANTalon)Robot.drivetrain.getFrontLeft()).setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+    	((CANTalon)Robot.drivetrain.getRearLeft()).setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+    	((CANTalon)Robot.drivetrain.getFrontRight()).setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+    	((CANTalon)Robot.drivetrain.getRearRight()).setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
     	
     	// Set the p, i, and d parameters of the PID systems (all should be the same)
-    	Robot.drivetrain.getFrontLeft().setPID(1, 0, 0);
-    	Robot.drivetrain.getRearLeft().setPID(1, 0, 0);
-    	Robot.drivetrain.getFrontRight().setPID(1, 0, 0);
-    	Robot.drivetrain.getRearRight().setPID(1, 0, 0);
+    	((CANTalon)Robot.drivetrain.getFrontLeft()).setPID(1, 0, 0);
+    	((CANTalon)Robot.drivetrain.getRearLeft()).setPID(1, 0, 0);
+    	((CANTalon)Robot.drivetrain.getFrontRight()).setPID(1, 0, 0);
+    	((CANTalon)Robot.drivetrain.getRearRight()).setPID(1, 0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
