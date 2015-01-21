@@ -5,7 +5,7 @@ import org.usfirst.frc.team1245.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team1245.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1245.robot.subsystems.Gripper;
 import org.usfirst.frc.team1245.robot.subsystems.Lifter;
-import org.usfirst.frc.team1245.robot.subsystems.RegularDrivetrain;
+import org.usfirst.frc.team1245.robot.subsystems.SRXDrivetrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
