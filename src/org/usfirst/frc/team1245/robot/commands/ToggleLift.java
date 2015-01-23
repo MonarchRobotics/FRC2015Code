@@ -11,10 +11,13 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ToggleLift extends Command {
 
+	private boolean finished;
+	
     public ToggleLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.lifter);
+    	finished = false;
     }
 
     // Called just before this Command runs the first time
@@ -28,11 +31,12 @@ public class ToggleLift extends Command {
     	} else{
     		Robot.lifter.setForward();
     	}
+    	finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return finished;
     }
 
     // Called once after isFinished returns true

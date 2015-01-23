@@ -10,10 +10,13 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ToggleGrip extends Command {
 
+	private boolean finished;
+	
     public ToggleGrip() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.gripper);
+    	finished = false;
     }
 
     // Called just before this Command runs the first time
@@ -28,11 +31,13 @@ public class ToggleGrip extends Command {
     	} else if (Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kForward) {
     		Robot.gripper.reverse();
     	}
+    	
+    	finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return finished;
     }
 
     // Called once after isFinished returns true
