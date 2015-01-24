@@ -25,7 +25,7 @@ public class MecanumDrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double x = OI.deadZone(OI.driverJoystick.getX(), RobotMap.translationalDeadZone);
-    	double y = OI.deadZone(OI.driverJoystick.getY(), RobotMap.rotationalDeadZone);
+    	double y = OI.deadZone(OI.driverJoystick.getY(), RobotMap.translationalDeadZone);
     	double twist = OI.deadZone(OI.driverJoystick.getTwist(), RobotMap.rotationalDeadZone);
     	
     	Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(x, y, twist, 0);
