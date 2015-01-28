@@ -13,6 +13,7 @@ public class Lifter extends Subsystem {
     // here. Call these from Commands.
 	
 	DoubleSolenoid lifterSolenoid;	
+	DoubleSolenoid airPressureSolenoid;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -20,8 +21,11 @@ public class Lifter extends Subsystem {
     	
     }
     
-    public Lifter(int forwardLifterChannel, int reverseLifterChannel){
+    public Lifter(int forwardLifterChannel, int reverseLifterChannel,
+    			  int forwardLifterPressureChannel, int reverseLifterPressureChannel){
     	lifterSolenoid = new DoubleSolenoid(forwardLifterChannel, reverseLifterChannel);
+    	airPressureSolenoid = new DoubleSolenoid(forwardLifterPressureChannel,
+    											 reverseLifterPressureChannel);
     }
     
     public void setForward(){
@@ -34,6 +38,18 @@ public class Lifter extends Subsystem {
     
     public Value getState(){
     	return lifterSolenoid.get();
+    }
+    
+    public Value getPressure() {
+    	return airPressureSolenoid.get();
+    }
+    
+    public void switchPressure() {
+    	if(airPressureSolenoid.get() == Value.kForward) {
+    		airPressureSolenoid.set(Value.kReverse);
+    	} else {
+    		airPressureSolenoid.set(Value.kForward);
+    	}
     }
 }
 

@@ -2,6 +2,7 @@ package org.usfirst.frc.team1245.robot;
 
 import org.usfirst.frc.team1245.robot.commands.ToggleGrip;
 import org.usfirst.frc.team1245.robot.commands.ToggleLift;
+import org.usfirst.frc.team1245.robot.commands.ToggleLifterPressure;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -43,6 +44,7 @@ public class OI {
 	
 	Button toggleGripButton;
 	Button toggleLiftButton;
+	Button togglePressureButton;
 	
 	public static double deadZone(double val, double deadZone) {
 		if(Math.abs(val) > deadZone) {
@@ -64,6 +66,9 @@ public class OI {
 		
 		toggleLiftButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleLift);
 		toggleLiftButton.whenReleased(new ToggleLift());
+		
+		togglePressureButton = new JoystickButton(secondaryJoystick, RobotMap.buttonTogglePressure);
+		togglePressureButton.whenReleased(new ToggleLifterPressure());
 	}
 }
 
