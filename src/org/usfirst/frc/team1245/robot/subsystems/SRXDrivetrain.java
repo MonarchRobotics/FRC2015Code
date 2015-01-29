@@ -27,6 +27,8 @@ public class SRXDrivetrain extends Drivetrain {
     	tRearRight = new CANTalon(rearRight);
     	
     	robotDrive = new RobotDrive(tFrontLeft, tRearLeft, tFrontRight, tRearRight);
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+    	robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
     }
 }
 

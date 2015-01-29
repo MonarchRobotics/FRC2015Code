@@ -5,7 +5,7 @@ import org.usfirst.frc.team1245.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team1245.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1245.robot.subsystems.Gripper;
 import org.usfirst.frc.team1245.robot.subsystems.Lifter;
-import org.usfirst.frc.team1245.robot.subsystems.SRXDrivetrain;
+import org.usfirst.frc.team1245.robot.subsystems.RegularDrivetrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,7 +23,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	
-	public static final Drivetrain drivetrain = new SRXDrivetrain(RobotMap.frontLeft, RobotMap.rearLeft, RobotMap.frontRight, RobotMap.rearRight);
+	public static final Drivetrain drivetrain = new RegularDrivetrain(RobotMap.frontLeft, RobotMap.rearLeft, RobotMap.frontRight, RobotMap.rearRight);
 	public static final Gripper gripper = new Gripper(RobotMap.forwardGripperChannel, RobotMap.reverseGripperChannel); 
 	public static final Lifter lifter = new Lifter(RobotMap.forwardLifterChannel, RobotMap.reverseLifterChannel,
 												   RobotMap.forwardLifterPressureChannel, RobotMap.reverseLifterPressureChannel);
