@@ -4,8 +4,8 @@ import org.usfirst.frc.team1245.robot.OI;
 import org.usfirst.frc.team1245.robot.Robot;
 import org.usfirst.frc.team1245.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -29,6 +29,14 @@ public class MecanumDrive extends Command {
     	double twist = OI.deadZone(OI.driverJoystick.getTwist(), RobotMap.rotationalDeadZone);
     	
     	Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(x, y, twist, 0);
+    	
+    	SmartDashboard.putNumber("JoystickX", OI.driverJoystick.getX());
+    	SmartDashboard.putNumber("JoystickY", OI.driverJoystick.getY());
+    	SmartDashboard.putNumber("JoystickTwist", OI.driverJoystick.getTwist());
+    	
+    	SmartDashboard.putNumber("MecanumX", x);
+    	SmartDashboard.putNumber("MecanumY", y);
+    	SmartDashboard.putNumber("MecanumTwist", twist);
     }
 
     // Make this return true when this Command no longer needs to run execute()

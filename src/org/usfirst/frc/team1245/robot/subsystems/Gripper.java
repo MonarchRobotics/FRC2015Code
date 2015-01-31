@@ -20,7 +20,7 @@ public class Gripper extends Subsystem {
     
     public Gripper(int forwardChannel, int reverseChannel) {
     	solenoid = new DoubleSolenoid(forwardChannel, reverseChannel);
-    	solenoid.set(DoubleSolenoid.Value.kReverse);
+    	//solenoid.set(DoubleSolenoid.Value.kReverse);
     }
     
     public void forward() {

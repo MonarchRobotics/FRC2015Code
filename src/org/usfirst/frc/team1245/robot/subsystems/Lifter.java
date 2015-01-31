@@ -26,7 +26,7 @@ public class Lifter extends Subsystem {
     	lifterSolenoid = new DoubleSolenoid(forwardLifterChannel, reverseLifterChannel);
     	airPressureSolenoid = new DoubleSolenoid(forwardLifterPressureChannel,
     											 reverseLifterPressureChannel);
-    	lifterSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	//lifterSolenoid.set(DoubleSolenoid.Value.kReverse);
     	airPressureSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     
@@ -36,6 +36,10 @@ public class Lifter extends Subsystem {
     
     public void setReverse(){
     	lifterSolenoid.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    public void setOff() {
+    	lifterSolenoid.set(DoubleSolenoid.Value.kOff);
     }
     
     public DoubleSolenoid.Value getValue(){
