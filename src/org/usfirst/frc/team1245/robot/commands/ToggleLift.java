@@ -27,8 +27,8 @@ public class ToggleLift extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(Robot.lifter.getValue() == DoubleSolenoid.Value.kForward){
-    		Robot.lifter.setOff();
-    	} else{
+    		Robot.lifter.setReverse();
+    	} else {
     		Robot.lifter.setForward();
     	}
     	finished = true;
