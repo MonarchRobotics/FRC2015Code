@@ -19,8 +19,8 @@ public abstract class Drivetrain extends Subsystem {
 	protected SpeedController tFrontRight;
 	protected SpeedController tRearRight;
 	
-	public static final double rpm = 5000;
-	public static final double rotationsPer10MS = 0.833;
+	// 11.5 ft/sec
+	public static final double maxSpeed = 11.5;
 
     public abstract void initDefaultCommand();
     

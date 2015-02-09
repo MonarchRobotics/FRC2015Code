@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team1245.robot;
 
+import org.usfirst.frc.team1245.robot.commands.SimpleAutonomous;
 import org.usfirst.frc.team1245.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team1245.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1245.robot.subsystems.Gripper;
@@ -46,6 +47,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	autonomousCommand = new SimpleAutonomous();
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
