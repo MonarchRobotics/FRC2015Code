@@ -28,10 +28,15 @@ public class LiftUp extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	if(Robot.gripper.getValue() != DoubleSolenoid.Value.kForward &&
+    	/* if(Robot.gripper.getValue() != DoubleSolenoid.Value.kForward &&
     	   Robot.lifter.getValue() != DoubleSolenoid.Value.kForward) {
     		addSequential(new ToggleGrip());
+    		addSequential(new Wait(0.5));
     		addSequential(new ToggleLift());
-    	}
+    	} */
+    	
+    	addSequential(new ToggleGrip());
+    	addSequential(new Wait(0.5));
+    	addSequential(new ToggleLift());
     }
 }

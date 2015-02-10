@@ -25,11 +25,17 @@ public class ToggleGrip extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kReverse ||
+    	/*if(Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kReverse ||
     	   Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kOff) {
     		Robot.gripper.forward();
     	} else if (Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kForward) {
     		Robot.gripper.reverse();
+    	} */
+    	
+    	if(Robot.gripper.getValue() == DoubleSolenoid.Value.kForward) {
+    		Robot.gripper.reverse();
+    	} else {
+    		Robot.gripper.forward();
     	}
     	
     	finished = true;

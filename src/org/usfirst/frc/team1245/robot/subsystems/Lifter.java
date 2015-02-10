@@ -51,10 +51,10 @@ public class Lifter extends Subsystem {
     }
     
     public void switchPressure() {
-    	if(airPressureSolenoid.get() == Value.kForward) {
-    		airPressureSolenoid.set(Value.kReverse);
+    	if(airPressureSolenoid.get() == DoubleSolenoid.Value.kForward) {
+    		airPressureSolenoid.set(DoubleSolenoid.Value.kReverse);
     	} else {
-    		airPressureSolenoid.set(Value.kForward);
+    		airPressureSolenoid.set(DoubleSolenoid.Value.kForward);
     	}
     }
 }
