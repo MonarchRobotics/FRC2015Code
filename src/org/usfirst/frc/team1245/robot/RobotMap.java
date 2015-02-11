@@ -31,6 +31,8 @@ public class RobotMap {
 	public static final int buttonToggleGrip = 1;
 	public static final int buttonToggleLift = 2;
 	public static final int buttonTogglePressure = 3;
+	public static final int buttonLiftUp = 4;
+	public static final int buttonStack = 5;
 	
 	public static final double translationalDeadZone = 0.1;
 	public static final double rotationalDeadZone = 0.1;

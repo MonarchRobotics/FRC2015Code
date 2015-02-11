@@ -3,6 +3,7 @@ package org.usfirst.frc.team1245.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -26,20 +27,22 @@ public class Lifter extends Subsystem {
     	lifterSolenoid = new DoubleSolenoid(forwardLifterChannel, reverseLifterChannel);
     	airPressureSolenoid = new DoubleSolenoid(forwardLifterPressureChannel,
     											 reverseLifterPressureChannel);
-    	//lifterSolenoid.set(DoubleSolenoid.Value.kReverse);
-    	airPressureSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	airPressureSolenoid.set(DoubleSolenoid.Value.kForward);
     }
     
     public void setForward(){
     	lifterSolenoid.set(DoubleSolenoid.Value.kForward);
+    	SmartDashboard.putBoolean("Lifted", true);
     }
     
     public void setReverse(){
     	lifterSolenoid.set(DoubleSolenoid.Value.kReverse);
+    	SmartDashboard.putBoolean("Lifted", false);
     }
     
     public void setOff() {
     	lifterSolenoid.set(DoubleSolenoid.Value.kOff);
+    	SmartDashboard.putBoolean("Lifted", false);
     }
     
     public DoubleSolenoid.Value getValue(){
@@ -53,8 +56,10 @@ public class Lifter extends Subsystem {
     public void switchPressure() {
     	if(airPressureSolenoid.get() == DoubleSolenoid.Value.kForward) {
     		airPressureSolenoid.set(DoubleSolenoid.Value.kReverse);
+    		SmartDashboard.putString("Lifter Pressure", "High");
     	} else {
     		airPressureSolenoid.set(DoubleSolenoid.Value.kForward);
+    		SmartDashboard.putString("Lifter Pressure", "Low");
     	}
     }
 }

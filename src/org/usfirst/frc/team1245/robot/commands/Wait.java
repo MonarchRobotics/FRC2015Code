@@ -35,6 +35,7 @@ public class Wait extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	timer.stop();
+    	timer.reset();
     }
 
     // Called when another command which requires one or more of the same

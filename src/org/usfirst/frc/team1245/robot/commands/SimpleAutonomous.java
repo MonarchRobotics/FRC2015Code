@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1245.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -25,22 +24,16 @@ public class SimpleAutonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new ToggleGrip());
-    	addSequential(new Wait(0.7));
-    	addSequential(new ToggleLift());
+    	addSequential(new LiftUp());
     	addSequential(new Wait(2.0));
     	
     	addSequential(new DirectionalDrive(0.0, -0.5, 3.0));
-    	addSequential(new Wait(0.7));
-    	
-    	addSequential(new ToggleGrip());
-    	addSequential(new Wait(0.7));
-    	addSequential(new ToggleLift());
     	addSequential(new Wait(2.0));
     	
-    	addSequential(new ToggleGrip());
-    	addSequential(new Wait(0.7));
-    	addSequential(new ToggleLift());
+    	addSequential(new Stack());
+    	addSequential(new Wait(2.0));
+    	
+    	addSequential(new LiftUp());
     	addSequential(new Wait(2.0));
     	
     	addSequential(new DirectionalDrive(-0.5, 0.0, 2.0));

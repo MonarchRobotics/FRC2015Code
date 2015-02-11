@@ -27,14 +27,11 @@ public class Stack extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	/* if(Robot.lifter.getValue() == DoubleSolenoid.Value.kForward &&
+        if(Robot.lifter.getValue() == DoubleSolenoid.Value.kForward &&
     	   Robot.gripper.getValue() == DoubleSolenoid.Value.kForward) {
-	    	addSequential(new ToggleGrip());
-	    	addSequential(new Wait(0.5));
-	    	addSequential(new ToggleLift());
-    	} */
-    	addSequential(new ToggleGrip());
-    	addSequential(new Wait(0.5));
-    	addSequential(new ToggleLift());
+    	    addSequential(new ToggleGrip());
+    	    addSequential(new Wait(2.0));
+    	    addSequential(new ToggleLift());
+        }
     }
 }

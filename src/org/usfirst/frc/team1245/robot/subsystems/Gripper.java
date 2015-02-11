@@ -2,6 +2,7 @@ package org.usfirst.frc.team1245.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -21,18 +22,22 @@ public class Gripper extends Subsystem {
     public Gripper(int forwardChannel, int reverseChannel) {
     	solenoid = new DoubleSolenoid(forwardChannel, reverseChannel);
     	//solenoid.set(DoubleSolenoid.Value.kReverse);
+    	//SmartDashboard.putBoolean("Gripped", false);
     }
     
     public void forward() {
     	solenoid.set(DoubleSolenoid.Value.kForward);
+    	SmartDashboard.putBoolean("Gripped", true);
     }
     
     public void reverse() {
     	solenoid.set(DoubleSolenoid.Value.kReverse);
+    	SmartDashboard.putBoolean("Gripped", false);
     }
     
     public void off() {
     	solenoid.set(DoubleSolenoid.Value.kOff);
+    	SmartDashboard.putBoolean("Gripped", false);
     }
     
     public DoubleSolenoid.Value getValue() {

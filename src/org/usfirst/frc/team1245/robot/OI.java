@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1245.robot;
 
+import org.usfirst.frc.team1245.robot.commands.LiftUp;
+import org.usfirst.frc.team1245.robot.commands.Stack;
 import org.usfirst.frc.team1245.robot.commands.ToggleGrip;
 import org.usfirst.frc.team1245.robot.commands.ToggleLift;
 import org.usfirst.frc.team1245.robot.commands.ToggleLifterPressure;
@@ -46,6 +48,9 @@ public class OI {
 	Button toggleLiftButton;
 	Button togglePressureButton;
 	
+	Button liftUpButton;
+	Button stackButton;
+	
 	public static double deadZone(double val, double deadZone) {
 		if(Math.abs(val) > deadZone) {
 			if(val > 0) {
@@ -69,6 +74,12 @@ public class OI {
 		
 		togglePressureButton = new JoystickButton(secondaryJoystick, RobotMap.buttonTogglePressure);
 		togglePressureButton.whenReleased(new ToggleLifterPressure());
+		
+		liftUpButton = new JoystickButton(secondaryJoystick, RobotMap.buttonLiftUp);
+		liftUpButton.whenReleased(new LiftUp());
+		
+		stackButton = new JoystickButton(secondaryJoystick, RobotMap.buttonStack);
+		stackButton.whenReleased(new Stack());
 	}
 }
 
