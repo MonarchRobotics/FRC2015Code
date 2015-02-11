@@ -24,19 +24,30 @@ public class SimpleAutonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new LiftUp());
-    	addSequential(new Wait(2.0));
-    	
-    	addSequential(new DirectionalDrive(0.0, -0.5, 3.0));
-    	addSequential(new Wait(2.0));
-    	
-    	addSequential(new Stack());
-    	addSequential(new Wait(2.0));
-    	
-    	addSequential(new LiftUp());
-    	addSequential(new Wait(2.0));
-    	
-    	addSequential(new DirectionalDrive(-0.5, 0.0, 2.0));
-    	addSequential(new Wait(0.7));
+        
+        // Pick up stuff
+        addSequential(new ToggleGrip());
+        addSequential(new Wait(2.0));
+        addSequential(new ToggleLift());
+        addSequential(new Wait(2.0));
+        
+        // Drive forward
+        addSequential(new DirectionalDrive(0.0, -0.5, 3.0));
+        addSequential(new Wait(2.0));
+        
+        // Stack stuff
+        addSequential(new ToggleGrip());
+        addSequential(new Wait(2.0));
+        addSequential(new ToggleLift());
+        addSequential(new Wait(2.0));
+        
+        // Pick stuff up
+        addSequential(new ToggleGrip());
+        addSequential(new Wait(2.0));
+        addSequential(new ToggleLift());
+        addSequential(new Wait(2.0));
+        
+        // Drive into the autozone
+        addSequential(new DirectionalDrive(-0.5, 0.0, 2.0));
     }
 }
