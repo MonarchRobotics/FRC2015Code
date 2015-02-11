@@ -47,7 +47,7 @@ public class SimpleAutonomous extends CommandGroup {
         addSequential(new ToggleLift());
         addSequential(new Wait(2.0));
         
-        // Drive into the autozone
+        // Drive into the Auto Zone
         addSequential(new DirectionalDrive(-0.5, 0.0, 2.0));
     }
 }
