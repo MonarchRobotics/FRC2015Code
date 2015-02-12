@@ -9,20 +9,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Wait extends Command {
 	
-	private static Timer time;
+	//private static Timer time;
+    private Timer time;
 	
 	private double duration;
 
     public Wait(double _duration) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        time = new Timer();
         duration = _duration;
-        time.start();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        time = new Timer();
+        time.start();
     }
 
     // Called repeatedly when this Command is scheduled to run

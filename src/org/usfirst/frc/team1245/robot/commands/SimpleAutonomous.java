@@ -26,28 +26,21 @@ public class SimpleAutonomous extends CommandGroup {
         // arm.
         
         // Pick up stuff
-        addSequential(new ToggleGrip());
-        addSequential(new Wait(2.0));
-        addSequential(new ToggleLift());
-        addSequential(new Wait(2.0));
+        addSequential(new LiftUp());
+        addSequential(new Wait(1.4));
         
         // Drive forward
-        addSequential(new DirectionalDrive(0.0, -0.5, 3.0));
-        addSequential(new Wait(2.0));
+        addSequential(new DirectionalDrive(0.0, -0.5, 1.5));
         
         // Stack stuff
-        addSequential(new ToggleGrip());
-        addSequential(new Wait(2.0));
-        addSequential(new ToggleLift());
+        addSequential(new Stack());
         addSequential(new Wait(2.0));
         
         // Pick stuff up
-        addSequential(new ToggleGrip());
-        addSequential(new Wait(2.0));
-        addSequential(new ToggleLift());
+        addSequential(new LiftUp());
         addSequential(new Wait(2.0));
         
-        // Drive into the Auto Zone
+        // Drive into the autozone
         addSequential(new DirectionalDrive(-0.5, 0.0, 2.0));
     }
 }

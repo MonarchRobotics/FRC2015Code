@@ -29,6 +29,10 @@ public class MecanumDrive extends Command {
     	double twist = OI.deadZone(OI.driverJoystick.getTwist(), RobotMap.rotationalDeadZone);
     	
     	Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(x, y, twist, 0);
+    	
+    	SmartDashboard.putNumber("Mecanum X", x);
+    	SmartDashboard.putNumber("Mecanum Y", y);
+    	SmartDashboard.putNumber("Mecanum Twist", twist);
     }
 
     // Make this return true when this Command no longer needs to run execute()

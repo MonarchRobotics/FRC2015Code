@@ -23,7 +23,6 @@ public class DirectionalDrive extends Command {
     	requires(Robot.drivetrain);
     	
     	timer = new Timer();
-    	timer.start();
     	this.duration = duration;
     	
     	this.x = x;
@@ -32,6 +31,7 @@ public class DirectionalDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -21,8 +21,7 @@ public class Gripper extends Subsystem {
     
     public Gripper(int forwardChannel, int reverseChannel) {
     	solenoid = new DoubleSolenoid(forwardChannel, reverseChannel);
-    	//solenoid.set(DoubleSolenoid.Value.kReverse);
-    	//SmartDashboard.putBoolean("Gripped", false);
+    	solenoid.set(DoubleSolenoid.Value.kReverse);
     }
     
     public void forward() {
@@ -32,11 +31,6 @@ public class Gripper extends Subsystem {
     
     public void reverse() {
     	solenoid.set(DoubleSolenoid.Value.kReverse);
-    	SmartDashboard.putBoolean("Gripped", false);
-    }
-    
-    public void off() {
-    	solenoid.set(DoubleSolenoid.Value.kOff);
     	SmartDashboard.putBoolean("Gripped", false);
     }
     
