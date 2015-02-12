@@ -19,8 +19,8 @@ public abstract class Drivetrain extends Subsystem {
 	protected SpeedController tFrontRight;
 	protected SpeedController tRearRight;
 	
-	// 11.5 ft/sec
-	public static final double maxSpeed = 11.5;
+	// 11.5 ft/sec (127 in/sec)
+	public static final double maxSpeed = 127;
 
     public abstract void initDefaultCommand();
     
