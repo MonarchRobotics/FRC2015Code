@@ -39,8 +39,6 @@ public class ContainerAutonomous extends CommandGroup {
         addSequential(new Wait(1.4));
         
         // Move into the Auto Zone
-        addSequential(new DirectionalDrive(0.0, 0.5, 2.0));
-        addSequential(new Wait(1.0));
         addSequential(new Rotate(0.5, 1.0));
     }
 }
