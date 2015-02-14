@@ -25,10 +25,10 @@ public class Stack extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        if(SmartDashboard.getBoolean("Lifted") && SmartDashboard.getBoolean("Gripped")) {
+//        if(SmartDashboard.getBoolean("Lifted") && SmartDashboard.getBoolean("Gripped")) {
     	    addSequential(new ToggleGrip());
     	    addSequential(new Wait(0.8));
     	    addSequential(new ToggleLift());
-        }
+//        }
     }
 }

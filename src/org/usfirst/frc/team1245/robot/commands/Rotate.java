@@ -8,40 +8,40 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveForward extends Command {
+public class Rotate extends Command {
+    
+    private double rotate;
+    private double duration;
+    private Timer time;
 
-	private Timer timer;
-	
-    public DriveForward() {
+    public Rotate(double _rotate, double _duration) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drivetrain);
+        rotate = _rotate;
+        duration = _duration;
+        time = new Timer();
+        requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	timer = new Timer();
-    	timer.start();
+        time.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(0.0, -0.5, 0.0, 0.0);
+        Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(0.0, 0.0, rotate, 0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(timer.get() >= 1.25){
-    		return true;
-    	}else{
-    		return false;
-    	}
+        return time.get() >= duration;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	timer.stop();
-    	Robot.drivetrain.getDrivetrain().mecanumDrive_Cartesian(0.0, -0.5, 0.0, 0.0);
+        time.stop();
+        time.reset();
     }
 
     // Called when another command which requires one or more of the same

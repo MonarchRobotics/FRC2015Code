@@ -26,10 +26,10 @@ public class LiftUp extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-	    if(!SmartDashboard.getBoolean("Lifted") && !SmartDashboard.getBoolean("Gripped")) {
+//	    if(!SmartDashboard.getBoolean("Lifted") && !SmartDashboard.getBoolean("Gripped")) {
 	        addSequential(new ToggleGrip());
 		    addSequential(new Wait(0.8));
 		    addSequential(new ToggleLift());
-	    }
+//	    }
     }
 }

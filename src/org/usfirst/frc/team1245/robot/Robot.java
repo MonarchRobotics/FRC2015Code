@@ -1,7 +1,8 @@
 
 package org.usfirst.frc.team1245.robot;
 
-import org.usfirst.frc.team1245.robot.commands.SimpleAutonomous;
+import org.usfirst.frc.team1245.robot.commands.ContainerAutonomous;
+import org.usfirst.frc.team1245.robot.commands.DirectionalDrive;
 import org.usfirst.frc.team1245.robot.subsystems.CompressorSubsystem;
 import org.usfirst.frc.team1245.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team1245.robot.subsystems.Gripper;
@@ -12,6 +13,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -39,7 +41,6 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
-		autonomousCommand = new SimpleAutonomous();
     }
 	
 	public void disabledPeriodic() {
@@ -48,7 +49,20 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-    	//autonomousCommand = new SimpleAutonomous();
+        int sequenceNumber = (int)SmartDashboard.getNumber("Autonomous Sequence");
+        
+        switch(sequenceNumber) {
+        case 0:
+            autonomousCommand = new DirectionalDrive(0.0, -0.5, 1.25);
+            break;
+        
+        case 1:
+            autonomousCommand = new ContainerAutonomous();
+            break;
+        
+        default:
+            autonomousCommand = null;
+        }
         if (autonomousCommand != null) autonomousCommand.start();
     }
 

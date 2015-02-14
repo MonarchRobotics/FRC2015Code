@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class SimpleAutonomous extends CommandGroup {
+public class ContainerAutonomous extends CommandGroup {
     
-    public  SimpleAutonomous() {
+    public  ContainerAutonomous() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,6 +24,13 @@ public class SimpleAutonomous extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        // Pick up the recycling container
+        
+        // Move forward into the container
+        addSequential(new DirectionalDrive(0.0, -0.5, 1.0));
+        addSequential(new Wait(1.0));
+        
+        addParallel(new DirectionalDrive(0.0, 0.5, 2.0));
         
         // Pick up the container
         addSequential(new ToggleGrip());
@@ -31,6 +38,9 @@ public class SimpleAutonomous extends CommandGroup {
         addSequential(new ToggleLift());
         addSequential(new Wait(1.4));
         
-        addSequential(new DirectionalDrive(0.0, 0.5, 1.7));
+        // Move into the Auto Zone
+        addSequential(new DirectionalDrive(0.0, 0.5, 2.0));
+        addSequential(new Wait(1.0));
+        addSequential(new Rotate(0.5, 1.0));
     }
 }
