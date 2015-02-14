@@ -1,9 +1,7 @@
 package org.usfirst.frc.team1245.robot.commands;
 
-import org.usfirst.frc.team1245.robot.Robot;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -27,11 +25,10 @@ public class Stack extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        //if(Robot.lifter.getValue() == DoubleSolenoid.Value.kForward &&
-    	//   Robot.gripper.getValue() == DoubleSolenoid.Value.kForward) {
+        if(SmartDashboard.getBoolean("Lifted") && SmartDashboard.getBoolean("Gripped")) {
     	    addSequential(new ToggleGrip());
     	    addSequential(new Wait(0.8));
     	    addSequential(new ToggleLift());
-        //}
+        }
     }
 }
