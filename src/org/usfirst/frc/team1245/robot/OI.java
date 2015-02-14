@@ -1,7 +1,5 @@
 package org.usfirst.frc.team1245.robot;
 
-import org.usfirst.frc.team1245.robot.commands.LiftUp;
-import org.usfirst.frc.team1245.robot.commands.Stack;
 import org.usfirst.frc.team1245.robot.commands.ToggleGrip;
 import org.usfirst.frc.team1245.robot.commands.ToggleLift;
 import org.usfirst.frc.team1245.robot.commands.ToggleLifterPressure;
