@@ -30,6 +30,7 @@ public class ContainerAutonomous extends CommandGroup {
         addSequential(new DirectionalDrive(0.0, -0.5, 1.0));
         addSequential(new Wait(1.0));
         
+        // Start moving toward the Auto Zone
         addParallel(new DirectionalDrive(0.0, 0.5, 2.0));
         
         // Pick up the container

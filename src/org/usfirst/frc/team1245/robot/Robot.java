@@ -48,21 +48,25 @@ public class Robot extends IterativeRobot {
 	}
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
+        // Figure out which autonomous sequence will be run from SmartDashboard
         int sequenceNumber = (int)SmartDashboard.getNumber("Autonomous Sequence");
         
         switch(sequenceNumber) {
+        // Move into the Auto Zone
         case 0:
             autonomousCommand = new DirectionalDrive(0.0, -0.5, 1.25);
             break;
         
+        // Grab a container and move into the Auto Zone
         case 1:
             autonomousCommand = new ContainerAutonomous();
             break;
         
+        // If something else was supplied, do nothing for saftey reasons
         default:
             autonomousCommand = null;
         }
+        // Start the autonomous command
         if (autonomousCommand != null) autonomousCommand.start();
     }
 

@@ -1,3 +1,5 @@
+// Command that toggles the lifter's pressure mode
+
 package org.usfirst.frc.team1245.robot.commands;
 
 import org.usfirst.frc.team1245.robot.Robot;
@@ -9,12 +11,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ToggleLifterPressure extends Command {
 
+    // Indicates whether the command is finished yet
 	boolean finished;
 	
     public ToggleLifterPressure() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        // This command requires the lifter
     	requires(Robot.lifter);
+    	// This command has not finished yet
     	finished = false;
     }
 
@@ -24,7 +29,10 @@ public class ToggleLifterPressure extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        // Toggle the lifter's pressure
     	Robot.lifter.switchPressure();
+    	
+    	// Indicate that the command has finished
     	finished = true;
     }
 

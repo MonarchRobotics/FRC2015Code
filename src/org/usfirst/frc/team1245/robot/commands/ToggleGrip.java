@@ -1,3 +1,5 @@
+// Command to toggle the gripper (grip or release)
+
 package org.usfirst.frc.team1245.robot.commands;
 
 import org.usfirst.frc.team1245.robot.Robot;
@@ -10,12 +12,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ToggleGrip extends Command {
 
+    // Indicates whether the command is finished
 	private boolean finished;
 	
     public ToggleGrip() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        // This command requires the gripper subsystem
     	requires(Robot.gripper);
+    	// This command is not yet finished
     	finished = false;
     }
 
@@ -25,19 +30,14 @@ public class ToggleGrip extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	/*if(Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kReverse ||
-    	   Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kOff) {
-    		Robot.gripper.forward();
-    	} else if (Robot.gripper.solenoid.get() == DoubleSolenoid.Value.kForward) {
-    		Robot.gripper.reverse();
-    	} */
-    	
+        // Toggle between forward and reverse
     	if(Robot.gripper.getValue() == DoubleSolenoid.Value.kForward) {
     		Robot.gripper.reverse();
     	} else {
     		Robot.gripper.forward();
     	}
     	
+    	// The command should only execute once, it is finished now
     	finished = true;
     }
 

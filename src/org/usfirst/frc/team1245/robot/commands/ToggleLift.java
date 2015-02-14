@@ -1,3 +1,5 @@
+// Command that the toggles lifting actuation
+
 package org.usfirst.frc.team1245.robot.commands;
 
 
@@ -11,12 +13,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ToggleLift extends Command {
 
+    // Indicates whether the command is finished yet
 	private boolean finished;
 	
     public ToggleLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        // This command requires the lifter subsystem
     	requires(Robot.lifter);
+    	// This command is not finished yet
     	finished = false;
     }
 
@@ -26,11 +31,14 @@ public class ToggleLift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        // Toggle between forward and reverse
     	if(Robot.lifter.getValue() == DoubleSolenoid.Value.kForward){
     		Robot.lifter.setReverse();
     	} else {
     		Robot.lifter.setForward();
     	}
+    	
+    	// Indicate that the command has finished
     	finished = true;
     }
 

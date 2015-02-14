@@ -15,23 +15,29 @@ public class RobotMap {
     // number and the module. For example you with a rangefinder:
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
-	public static final int frontLeft = 0;
+    
+    // Talon SR channels
+    public static final int frontLeft = 0;
 	public static final int rearLeft = 1;
 	public static final int frontRight = 2;
 	public static final int rearRight = 3;
 	
+	// Gripper solenoid channels
 	public static final int forwardGripperChannel = 0;
 	public static final int reverseGripperChannel = 1;
 	
+	// Lifter solenoid channels for both actuation and pressure control
 	public static final int forwardLifterChannel = 4;
 	public static final int reverseLifterChannel = 5;
 	public static final int forwardLifterPressureChannel = 2;
 	public static final int reverseLifterPressureChannel = 3;
 	
+	// Button numbers on the secondary joystick to perform commands
 	public static final int buttonToggleGrip = 1;
 	public static final int buttonToggleLift = 2;
 	public static final int buttonTogglePressure = 3;
 	
+	// Deadzones for rotation and translation for the drivetrain
 	public static final double translationalDeadZone = 0.1;
 	public static final double rotationalDeadZone = 0.1;
 }

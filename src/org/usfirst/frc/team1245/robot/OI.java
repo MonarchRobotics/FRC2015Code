@@ -39,15 +39,20 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-	public static Joystick driverJoystick;
+	
+    // Two joysticks
+    public static Joystick driverJoystick;
 	public static Joystick secondaryJoystick;
 	
+	// Actuation buttons on secondary joystick
 	Button toggleGripButton;
 	Button toggleLiftButton;
 	Button togglePressureButton;
 	
+	// Dead zone function
 	public static double deadZone(double val, double deadZone) {
-		if(Math.abs(val) > deadZone) {
+		// Return a new percentage based on the living zone
+	    if(Math.abs(val) > deadZone) {
 			if(val > 0) {
 				return (val - deadZone) / (1 - deadZone);
 			} else {
@@ -58,15 +63,19 @@ public class OI {
 	}
 	
 	public OI() {
+	    // Initialize joysticks
 		driverJoystick = new Joystick(0);
 		secondaryJoystick = new Joystick(1);
 		
+		// Map grip toggle button
 		toggleGripButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleGrip);
 		toggleGripButton.whenReleased(new ToggleGrip());
 		
+		// Map lift toggle button
 		toggleLiftButton = new JoystickButton(secondaryJoystick, RobotMap.buttonToggleLift);
 		toggleLiftButton.whenReleased(new ToggleLift());
 		
+		//Map pressure toggle button
 		togglePressureButton = new JoystickButton(secondaryJoystick, RobotMap.buttonTogglePressure);
 		togglePressureButton.whenReleased(new ToggleLifterPressure());
 	}
